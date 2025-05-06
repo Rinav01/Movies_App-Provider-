@@ -1,24 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:provider/constants/my_app_icons.dart';
-import 'package:provider/screens/favourites_screen.dart';
-import 'package:provider/service/init_getit.dart';
-import 'package:provider/service/navigation_service.dart';
 import 'package:provider/widgets/movies/movies_widgets.dart';
 
-class MoviesScreen extends StatelessWidget {
-  const MoviesScreen({super.key});
+class FavouritesScreen extends StatelessWidget {
+  const FavouritesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Popular Movies"),
+        title: const Text("Favourite Movies"),
         actions: [
           IconButton(
-            onPressed: () {
-              getIt<NavigationService>().navigate(const FavouritesScreen());
-            },
-            icon: const Icon(MyAppIcons.favouriteRounded, color: Colors.red),
+            onPressed: () {},
+            icon: const Icon(MyAppIcons.delete, color: Colors.black),
           ),
 
           IconButton(onPressed: () {}, icon: const Icon(MyAppIcons.darkTheme)),
