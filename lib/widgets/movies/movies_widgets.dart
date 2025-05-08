@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:provider/constants/my_app_constants.dart';
-import 'package:provider/constants/my_app_icons.dart';
-import 'package:provider/screens/movie_details.dart';
-import 'package:provider/service/init_getit.dart';
-import 'package:provider/service/navigation_service.dart';
-import 'package:provider/widgets/cached_image.dart';
-import 'package:provider/widgets/movies/favourite_btn.dart';
-import 'package:provider/widgets/movies/genres_widget.dart';
+import 'package:provider_state_managements/constants/my_app_constants.dart';
+import 'package:provider_state_managements/constants/my_app_icons.dart';
+import 'package:provider_state_managements/screens/movie_details.dart';
+import 'package:provider_state_managements/service/init_getit.dart';
+import 'package:provider_state_managements/service/navigation_service.dart';
+import 'package:provider_state_managements/widgets/cached_image.dart';
+import 'package:provider_state_managements/widgets/movies/favourite_btn.dart';
+import 'package:provider_state_managements/widgets/movies/genres_widget.dart';
 
 class MoviesWidget extends StatelessWidget {
   const MoviesWidget({super.key});

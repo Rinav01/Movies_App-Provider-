@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/constants/my_app_constants.dart';
+import 'package:provider_state_managements/constants/my_app_constants.dart';
 
 class GenresListWidget extends StatelessWidget {
   const GenresListWidget({super.key});

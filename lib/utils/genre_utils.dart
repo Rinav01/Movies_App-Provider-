@@ -1,6 +1,8 @@
-import 'package:provider/models/movies_genres_model.dart';
-import 'package:provider/repository/movies_repo.dart';
-import 'package:provider/service/init_getit.dart';
+
+
+import 'package:provider_state_managements/models/movies_genres_model.dart';
+import 'package:provider_state_managements/repository/movies_repo.dart';
+import 'package:provider_state_managements/service/init_getit.dart';
 
 class GenreUtils {
   static List<MoviesGenresModel> movieGenresNames(List<int> genreIds) {

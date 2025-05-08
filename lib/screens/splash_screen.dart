@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:provider/widgets/error_widget.dart';
+import 'package:provider_state_managements/widgets/error_widget.dart';
+
 
 class SplashScreen extends StatelessWidget {
   const SplashScreen({super.key});

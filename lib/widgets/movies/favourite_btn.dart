@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:provider/constants/my_app_icons.dart';
+import 'package:provider_state_managements/constants/my_app_icons.dart';
 
 class FavouriteBtn extends StatelessWidget {
   const FavouriteBtn({super.key});
