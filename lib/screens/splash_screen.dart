@@ -7,9 +7,20 @@ class SplashScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Center(
-        child: MyErrorWidget(errorText: "errorText", retryFunction: () {}),
-      ),
+      body:
+          true
+              ? const Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Text("Loading..."),
+                    SizedBox(height: 20),
+                    CircularProgressIndicator.adaptive(),
+                  ],
+                ),
+              )
+              : MyErrorWidget(errorText: '_errorMessage', retryFunction: () {}),
     );
   }
 }

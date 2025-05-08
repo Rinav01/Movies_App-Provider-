@@ -13,7 +13,7 @@ class FavouritesScreen extends StatelessWidget {
         actions: [
           IconButton(
             onPressed: () {},
-            icon: const Icon(MyAppIcons.delete, color: Colors.black),
+            icon: const Icon(MyAppIcons.delete, color: Colors.red),
           ),
 
           IconButton(onPressed: () {}, icon: const Icon(MyAppIcons.darkTheme)),

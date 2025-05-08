@@ -13,10 +13,26 @@ class NavigationService {
     );
   }
 
-  // Future<void> showDialog(BuildContext? context, Widget widget) async {
-  //   await showAdaptiveDialog(
-  //     context: context ?? navigatorKey.currentContext!,
-  //     builder: (context) => widget,
-  //   );
-  // }
+  navigateReplace(Widget widget) {
+    return navigatorKey.currentState?.pushReplacement(
+      MaterialPageRoute(builder: (context) => widget),
+    );
+  }
+
+  Future<void> showDialog(Widget widget) async {
+    await showAdaptiveDialog(
+      barrierDismissible: true,
+      context: navigatorKey.currentContext!,
+      builder: (context) => widget,
+    );
+  }
+
+  void showSnackbar(String Message) {
+    final context = navigatorKey.currentContext!;
+    ScaffoldMessenger.of(context).hideCurrentMaterialBanner();
+    final snackbarWidget = SnackBar(
+      content: Text(Message, style: const TextStyle(color: Colors.white)),
+    );
+    ScaffoldMessenger.of(context).showSnackBar(snackbarWidget);
+  }
 }

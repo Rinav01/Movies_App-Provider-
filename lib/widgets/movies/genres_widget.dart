@@ -1,14 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:provider/constants/my_app_constants.dart';
 
-class GenresListWidget extends StatefulWidget {
+class GenresListWidget extends StatelessWidget {
   const GenresListWidget({super.key});
 
-  @override
-  State<GenresListWidget> createState() => _GenresListWidgetState();
-}
-
-class _GenresListWidgetState extends State<GenresListWidget> {
   @override
   Widget build(BuildContext context) {
     return Wrap(

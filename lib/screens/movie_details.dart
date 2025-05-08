@@ -94,6 +94,17 @@ class MovieDetailsScreen extends StatelessWidget {
                 ],
               ),
             ),
+            Positioned(
+              top: 5,
+              left: 5,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Theme.of(context).cardColor,
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                child: const BackButton(),
+              ),
+            ),
           ],
         ),
       ),
