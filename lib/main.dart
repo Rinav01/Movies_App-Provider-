@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:provider/provider.dart';
-import 'package:provider_state_managements/screens/movies_screen.dart';
+import 'package:provider_state_managements/screens/splash_screen.dart';
 import 'package:provider_state_managements/service/init_getit.dart';
 import 'package:provider_state_managements/service/navigation_service.dart';
+import 'package:provider_state_managements/view_models/movie_provider.dart';
 import 'package:provider_state_managements/view_models/theme_provider.dart';
 
 void main() {
@@ -26,7 +27,11 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     
     return MultiProvider(
-      providers: [ChangeNotifierProvider(create: (_) => ThemeProvider())],
+      providers: [
+        ChangeNotifierProvider<ThemeProvider>(create: (_) => ThemeProvider()),
+        ChangeNotifierProvider<MoviesProvider>(create: (_) => MoviesProvider()
+        )
+      ],
       child: Consumer(
         builder: (context , ThemeProvider themeProvider, child) {
           return MaterialApp(
@@ -34,7 +39,7 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             title: 'Movies App',
             theme: themeProvider.themeData,
-            home: const MoviesScreen(),
+            home: SplashScreen(),
           );
         }
       ),

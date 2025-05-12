@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 import 'package:provider_state_managements/constants/my_app_constants.dart';
+import 'package:provider_state_managements/models/movie_model.dart';
 import 'package:provider_state_managements/widgets/cached_image.dart';
 import 'package:provider_state_managements/widgets/movies/favourite_btn.dart';
 import 'package:provider_state_managements/widgets/movies/genres_widget.dart';
@@ -10,16 +12,20 @@ class MovieDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final moviesModelProvider = Provider.of<MovieModel>(context);
     final size = MediaQuery.sizeOf(context);
     return Scaffold(
       body: SafeArea(
         child: Stack(
           children: [
-            SizedBox(
-              height: size.height * 0.45,
-              width: double.infinity,
-              child: const CachedImageWidget(
-                imageUrl: MyAppConstants.stockImage,
+            Hero(
+              tag: moviesModelProvider.id ??0,
+              child: SizedBox(
+                height: size.height * 0.45,
+                width: double.infinity,
+                child: CachedImageWidget(
+                  imageUrl:"https://image.tmdb.org/t/p/w500/${moviesModelProvider.backdropPath}",
+                ),
               ),
             ),
             SingleChildScrollView(
@@ -39,8 +45,8 @@ class MovieDetailsScreen extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 const SizedBox(height: 25),
-                                const Text(
-                                  "Movie Title",
+                                Text(
+                                  moviesModelProvider.title ?? "No Title",
                                   maxLines: 2,
                                   style: TextStyle(
                                     fontSize: 28,
@@ -48,24 +54,26 @@ class MovieDetailsScreen extends StatelessWidget {
                                   ),
                                 ),
                                 const SizedBox(height: 13),
-                                const Row(
+                                Row(
                                   children: [
-                                    Icon(
+                                    const Icon(
                                       Icons.star,
                                       color: Colors.amber,
                                       size: 20,
                                     ),
-                                    SizedBox(width: 5),
-                                    Text("9/10"),
-                                    Spacer(),
+                                    const SizedBox(width: 5),
+                                    Text("${moviesModelProvider.voteAverage?.toStringAsFixed(1)}/10"),
+                                    const Spacer(),
                                     Text(
-                                      "Release Date",
+                                      moviesModelProvider.releaseDate ?? "No Release Date",
                                       style: TextStyle(color: Colors.grey),
                                     ),
                                   ],
                                 ),
                                 const SizedBox(height: 10),
-                                const GenresListWidget(),
+                                GenresListWidget(
+                                  movieModel: moviesModelProvider,
+                                ),
                                 const SizedBox(height: 15),
                                 Text(
                                   "Overview" * 200,
