@@ -76,9 +76,11 @@ class MovieDetailsScreen extends StatelessWidget {
                                 ),
                                 const SizedBox(height: 15),
                                 Text(
-                                  "Overview" * 200,
+                                  moviesModelProvider.overview?? "No Overview",
                                   textAlign: TextAlign.justify,
-                                  style: const TextStyle(fontSize: 18),
+                                  style: const TextStyle(
+                                    fontSize: 18.0,
+                                  ),
                                 ),
                               ],
                             ),
@@ -92,9 +94,11 @@ class MovieDetailsScreen extends StatelessWidget {
                             color: Theme.of(context).cardColor,
                             shape: BoxShape.circle,
                           ),
-                          child: const Padding(
-                            padding: EdgeInsets.all(6.0),
-                            child: FavouriteBtn(),
+                          child: Padding(
+                            padding: const EdgeInsets.all(6.0),
+                            child: FavouriteBtn(
+                              movieModel: moviesModelProvider,
+                            ),
                           ),
                         ),
                       ),

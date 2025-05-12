@@ -5,6 +5,7 @@ import 'package:provider/provider.dart';
 import 'package:provider_state_managements/screens/splash_screen.dart';
 import 'package:provider_state_managements/service/init_getit.dart';
 import 'package:provider_state_managements/service/navigation_service.dart';
+import 'package:provider_state_managements/view_models/favourites_provider.dart';
 import 'package:provider_state_managements/view_models/movie_provider.dart';
 import 'package:provider_state_managements/view_models/theme_provider.dart';
 
@@ -29,8 +30,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<ThemeProvider>(create: (_) => ThemeProvider()),
-        ChangeNotifierProvider<MoviesProvider>(create: (_) => MoviesProvider()
-        )
+        ChangeNotifierProvider<MoviesProvider>(create: (_) => MoviesProvider()),
+        ChangeNotifierProvider<FavouritesProvider>(create: (_) => FavouritesProvider()),
       ],
       child: Consumer(
         builder: (context , ThemeProvider themeProvider, child) {

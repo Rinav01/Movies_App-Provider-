@@ -3,6 +3,7 @@ import 'package:provider/provider.dart';
 import 'package:provider_state_managements/screens/movies_screen.dart';
 import 'package:provider_state_managements/service/init_getit.dart';
 import 'package:provider_state_managements/service/navigation_service.dart';
+import 'package:provider_state_managements/view_models/favourites_provider.dart';
 import 'package:provider_state_managements/view_models/movie_provider.dart';
 import 'package:provider_state_managements/widgets/error_widget.dart';
 
@@ -12,6 +13,9 @@ class SplashScreen extends StatelessWidget {
     await Future.microtask(() async {
       if (!context.mounted) return;
       await Provider.of<MoviesProvider>(context, listen: false).getMovies();
+
+      if (!context.mounted) return;
+      await Provider.of<FavouritesProvider>(context, listen: false).loadFavourites();
     });
     // WidgetsBinding.instance.addPostFrameCallback((_) {
     //   Provider.of<MoviesProvider>(context, listen: false).getMovies();
